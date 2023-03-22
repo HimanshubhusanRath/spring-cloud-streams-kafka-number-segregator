@@ -17,7 +17,7 @@ Key points of the project:
 * CustomNumberSerde --> Serde for the above custom object to be used for stream processing.
 
 
-A note on configuring the Serializer/Deserializer for kafka:
+Note on configuring the Serializer/Deserializer for kafka:
 ---------------------------
 * If we are using 'spring-cloud-stream-binder-kafka' in classpath, then use <b>spring.cloud.stream.kafka.bindings.<binding-name>.[producer/consumer].configuration.[key/value].[serializer/deserializer]</b>
 * If we are using 'spring-cloud-stream-binder-kafka-streams' in classpath, then use <b>spring.cloud.stream.kafka.streams.bindings.<binding-name>.[producer/consumer].[keySerde/valueSerde]</b>
