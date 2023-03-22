@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: numberProducer
+      bindings:
+        numberProducer-out-0:
+          destination: number.input
+          producer:
+            useNativeEncoding: true
+      kafka:
+        bindings:
+          numberProducer-out-0:
+            producer:
+              configuration:
+                value:
+                  serializer: com.hr.custom.serdes.CustomNumberSerializer
+
+        binder:
+          brokers:
+            - localhost:9092

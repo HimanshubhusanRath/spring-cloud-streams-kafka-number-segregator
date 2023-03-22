@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: consumeOddNumbers
+      bindings:
+        consumeOddNumbers-in-0:
+          destination: number.out.odd
+
+      kafka:
+        streams:
+          bindings:
+            consumeOddNumbers-in-0:
+              consumer:
+                valueSerde: com.hr.custom.serdes.CustomNumberSerde
+
+        binder:
+          brokers:
+            - localhost:9092
+

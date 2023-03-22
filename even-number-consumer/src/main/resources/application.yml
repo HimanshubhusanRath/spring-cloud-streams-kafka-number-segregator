@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: consumeEvenNumbers
+      bindings:
+        consumeEvenNumbers-in-0:
+          destination: number.out.even
+
+      kafka:
+        streams:
+          bindings:
+            consumeEvenNumbers-in-0:
+              consumer:
+                valueSerde: com.hr.custom.serdes.CustomNumberSerde
+
+        binder:
+          brokers:
+            - localhost:9092
+

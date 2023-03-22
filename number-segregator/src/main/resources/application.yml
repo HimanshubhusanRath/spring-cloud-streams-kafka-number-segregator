@@ -1,0 +1,49 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: oddNumberSegregator;evenNumberSegregator
+      bindings:
+        oddNumberSegregator-in-0:
+          destination: number.input
+          consumer:
+            useNativeDecoding: true
+        oddNumberSegregator-out-0:
+          destination: number.out.odd
+          producer:
+            useNativeEncoding: true
+        evenNumberSegregator-in-0:
+          destination: number.input
+          consumer:
+            useNativeDecoding: true
+        evenNumberSegregator-out-0:
+          destination: number.out.even
+          producer:
+            useNativeEncoding: true
+
+      kafka:
+        streams:
+          bindings:
+            oddNumberSegregator-in-0:
+              consumer:
+                valueSerde: com.hr.custom.serdes.CustomNumberSerde
+
+            oddNumberSegregator-out-0:
+              producer:
+                valueSerde: com.hr.custom.serdes.CustomNumberSerde
+
+            evenNumberSegregator-in-0:
+              consumer:
+                valueSerde: com.hr.custom.serdes.CustomNumberSerde
+
+            evenNumberSegregator-out-0:
+              producer:
+                valueSerde: com.hr.custom.serdes.CustomNumberSerde
+
+
+
+        binder:
+          brokers:
+            - localhost:9092
+
+
