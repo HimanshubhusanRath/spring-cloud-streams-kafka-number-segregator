@@ -1,6 +1,6 @@
 # Odd-Even Number Segregator using Spring Cloud Streams with Kafka
 
-There are 5 sub modules in this app:
+There are 5 sub modules in this project:
 -------------------------------
 * common-dtos --> Contains the common dto, serializers, deserializers, serdes
 * number-producer ---> <b>[SUPPLIER]</b> Producer which produces numbers from 1 to 100 to a kafka topic (number.input)
